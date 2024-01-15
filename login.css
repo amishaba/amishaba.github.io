@@ -1,0 +1,84 @@
+.red-btn {
+    height: 25px;
+    width: 500px;
+    background-color:brown;
+    right: 0;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+    color: white;
+}
+
+.head{
+    position: relative; /* To make the container a positioning context for the text */
+}
+.JT{
+	font-family: 'Galada',cursive;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 10px; /* Add some margin for spacing */
+    color: brown;
+    padding:2px;
+}
+.header{
+    width:100%;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+nav{
+    display:flex;
+    top:0;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav-links{
+    flex:1;
+    text-align: right;
+}
+.nav-links ul li{
+    list-style: none;
+    display: inline-block;
+    padding: 2px 8px;
+    position: relative;
+}
+.nav-links ul li a{
+    color: black;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.form {
+    margin: 1rem;
+    padding: 2rem 2rem;
+    text-align: center;
+}
+
+.login{
+    display: inline-block;
+    padding: 1rem 1rem;
+    vertical-align: top;
+    text-align: left;
+    float: left;
+    height: 400px;
+    width: 525px;
+
+}
+
+.signup{
+    display: inline-block;
+    padding: 1rem 1rem;
+    vertical-align: top;
+    text-align: left;
+    float: right;
+    height: 400px;
+    width: 525px;
+
+}
+
+
+.wide-input {
+    width: 500px;
+    height: 23px;
+}

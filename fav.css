@@ -1,0 +1,295 @@
+
+.head{
+    position: relative; /* To make the container a positioning context for the text */
+}
+
+.search{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.top1{
+    align-items: flex-start; /* Align children from their top */
+    margin-left: auto;
+	margin-right: auto;
+}
+
+.JT{
+    font-family: 'Galada',cursive;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 10px; /* Add some margin for spacing */
+    color: brown;
+    padding:2px;
+}
+.header{
+    min-height: 100vh;/*was 100*/
+    width:100%;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+nav{
+    display:flex;
+    top:0;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav-links{
+    flex:1;
+    text-align: right;
+}
+.nav-links ul li{
+    list-style: none;
+    display: inline-block;
+    padding: 2px 8px;
+    position: relative;
+}
+.nav-links ul li a{
+    color: black;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+
+.search{
+    position: absolute;
+    margin-bottom: 10px;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    left: 170px;
+    top: -500px;
+}
+.search div{
+    display: flex;
+    align-items: center;
+    margin-bottom:40px ;
+    text-align: center;
+    margin-right: 50px;
+}
+.bottom input{
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-top: 1px;
+}
+.topl input{
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.red-btn {
+    width: 90px;
+    height: 25px;
+    background-color:brown;
+    right: 0;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.radio-buttons {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    margin-top: 60px;
+}
+.top{
+    /*like 80%*/
+    width: 900px;
+}
+
+.r_top {
+    display: flex;
+    flex-direction: row;
+    /*set a width proportional to top*/
+    width: 200px;
+}
+.r_bottom{
+    width: 150px;
+    margin-top: -35px;
+}
+
+.radio-buttons label {
+    font-size: 13px;
+    flex: 1;
+}
+.bottom{
+    margin-top: -50px;
+}
+.search .top,
+.search .bottom {
+    margin-bottom: 10px; /* Adjust this value as needed */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.blue-btn{
+    width: 300px;
+    height: 25px;
+    background-color:blue;
+    right: 0;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    color: white;
+}
+
+.s{
+    display: none;
+}
+
+
+.resultsBody{
+	background-color: white;
+    border-radius: 5px;
+    margin-top: -500px;
+}
+
+
+.rname{
+    width: 400px;
+    height: 23px;
+}
+.l_{
+    height: 23px;
+    width: 235px;
+}
+
+
+#resultsTable.resultsTable{
+	background-color: transparent;	
+}
+
+
+
+
+
+
+
+
+
+.restaurant-box{
+	background-color: #f9f9f9;
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+	
+}
+
+.restaurantDiv{
+	background-color: #f9f9f9;
+    padding: 5px;
+    margin: 5px;/*also was10*/
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+	
+}
+
+
+.resultsBody{
+	background-color: #f9f9f9;
+    padding: 5px;/*tehse were both 10*/
+    margin: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+
+
+
+
+
+/* Style the dropdown button */
+#dropdown-btn {
+	
+    padding: 10px;
+    width: 90px;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 175px;
+    margin-right: 400px;
+    background-color: brown;
+
+}
+
+/* Style the dropdown container */
+.dropdown {
+    position: relative;
+   /* display: inline-block;*/
+    float: right;
+    margin-left: 700px;
+    margin-top: -18%;
+}
+
+/* Hide the dropdown content by default */
+.dropdown-content {
+    display: none;
+  position: absolute;
+  top: 100%; /* Position below the button */
+  left: 0; /* Align with the left edge of the button */
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+   font-size: 13px;
+}
+
+/* Style the dropdown options */
+.dropdown-content a {
+    display: block;/*was block*/
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+}
+
+/* Change link color on hover */
+.dropdown-content a:hover {
+    background-color: #e0e0e0;
+}
+
+/* Show the dropdown content when the button is clicked */
+.dropdown.active .dropdown-content {
+    display: block;
+}
+
+
+.search-sort{
+    flex-direction: column;
+}
+
+
+
+.dotted-line {
+    border-top: 1px dotted #000; /* You can change the color (#000) to your desired color */
+    margin-top: 10px; /* Adjust this margin as needed to separate the line from the content above */
+    margin-bottom: 20px; /* Adjust this margin as needed to separate the line from the content below */
+}
+
+.result_{
+	font-size: 30px;
+	color: black;
+	width: 1024px;
+	
+}
+

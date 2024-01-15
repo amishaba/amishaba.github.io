@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Favorites</title>
+    
+     <style>
+		#map-popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 20px;
+      z-index: 1000;
+      width: 600px;
+      max-height: 400px; /* Set maximum height for the map container */
+    }
+
+    #close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+      color: #333;
+      font-size: 18px;
+    }
+
+    #map {
+      height: calc(100%); /* Adjust the height to fit inside the container */
+      width: 600px;
+      max-height: 400px; /* Set maximum height for the map container */
+      
+    }
+
+		
+	</style>
+    
+    
+    <link rel="stylesheet" href="fav.css">
+    <script src="login.js"></script>
+    <script src="fav.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Galada">
+    <script src="https://kit.fontawesome.com/b5389d2cc8.js" crossorigin="anonymous"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfh-FQ_M7imIwMA_qG24lYFalrRM9DXX8&libraries=places&callback=initMap" defer></script>
+
+</head>
+
+<body>
+
+
+    <div class="head">
+        <h2 class="JT">JoesTable</h2>
+    </div>
+
+
+
+    <section class="header">
+        <nav>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="user.html">Home</a></li>
+                    <li><a href="fav.html">Favorites</a></li>
+                    <li><a href="res.html">Reservations</a></li>
+                    <li><a href="login.html">Log out</a></li>
+
+                </ul>
+            </div>
+        </nav>
+        <hr class="dotted-line" id="dotted-line">
+
+    </section>
+
+
+
+
+    <div class="search-sort">
+        <!--search area -->
+        <div class="search">
+            <form>
+                <div class="top">
+
+                    <div class="topl">
+                        <input type="text" class="rname" name="name" placeholder="Restaurant Name" required>
+                        <button class="red-btn"><i class="fas fa-search" style="color: #ffffff;"></i></button>
+                    </div>
+
+
+                    <div class="radio-buttons">
+                        <div class="r_top">
+                            <label>
+                                <input type="radio" class="radio_" name="choice" value="best_match" required> Best Match
+                            </label>
+                            <label>
+                                <input type="radio" class="radio_" name="choice" value="review_count"> Review Count
+                            </label>
+
+                        </div>
+                        <div class="r_bottom">
+                            <label>
+                                <input type="radio" class="radio_" name="choice" value="rating"> Rating
+                            </label>
+                            <label>
+                                <input type="radio" name="choice" value="distance"> Distance
+                            </label>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="bottom">
+                    <input type="number" class="l_" step="0.00000000000000001" name="Latitude" placeholder="Latitude" required>
+                    <input type="number" class="l_" step="0.000000000000000001" name="Longitude" placeholder="Longitude" required>
+                    <button id="openMapButton" class="blue-btn"><i class="fa-solid fa-location-dot" style="color: #ffffff;"></i> (Google Maps) Drop a pin!</button>
+                
+                <div id="map-popup">
+      				<span id="close-btn" onclick="closeMap()">X</span>
+      				<div id="map" style="height: 400px;"></div>
+    			</div>
+    			
+                </div>
+        
+            </form>
+            
+            <div class="result_" id="result_"></div>
+				<div class="dropdown">
+            <button id="dropdown-btn"><i class="fa-solid fa-arrow-down-wide-short" style="color: #ffffff;"></i>Sort By</button>
+            <div id="dropdown-content" class="dropdown-content">
+                <a href="#" id="atoz">A to Z</a>
+                <a href="#" id="ztoa">Z to A</a>
+                <a href="#" id="high">Highest Rating</a>
+                <a href="#" id="low">Lowest Rating</a>
+                <a href="#" id="recent">Most Recent</a>
+                <a href="#" id="last">Least Recent</a>
+            </div>
+            <hr class="dotted-line" id="dotted-line">
+        </div> 
+
+    </div>
+    <hr class="dotted-line" id="dotted-line">
+    
+    
+    
+    
+    
+    
+    
+    
+
+    <div class="restaurantList" id="restaurantList">
+
+    </div>
+
+    <div id="resultsBody">
+
+    </div>
+
+
+
+<script>
+	let map;
+      async function initMap() {
+        var initialCoords = { lat: 34.0206, lng: -118.2854 };
+        const { Map } = await google.maps.importLibrary("maps");
+
+        map = new Map(document.getElementById("map"), {
+          center:  { lat: 34.0206, lng: -118.2854 },
+          zoom: 8,
+        });
+
+        var marker = new google.maps.Marker({
+          map: map,
+          position: initialCoords,
+          draggable: true,
+        });
+
+        marker.addListener("dragend", function () {
+          console.log("Marker moved to:", marker.getPosition().toJSON());
+          console.log('hwew - '+marker.getPosition().toJSON().lat); 
+          const map_lat=marker.getPosition().toJSON().lat;
+          const map_long=marker.getPosition().toJSON().lng;
+          console.log(map_lat+ ' '+map_long);
+          // Access the Latitude and Longitude input elements by name
+   		 const latitudeInput = document.querySelector('input[name="Latitude"]');
+ 		 const longitudeInput = document.querySelector('input[name="Longitude"]');
+
+    // Change the values of the input elements
+   		 latitudeInput.value = map_lat; // Set your desired latitude value
+   		 longitudeInput.value = map_long; // Set your desired longitude value
+          
+        });
+      }
+
+      function openMap() {
+        document.getElementById("map-popup").style.display = "block";
+        initMap(); // Initialize the map when the popup is opened
+      }
+
+      function closeMap() {
+        document.getElementById("map-popup").style.display = "none";
+      }
+
+      // Load Google Maps API
+      (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})
+        ({key: "AIzaSyDQt0Olo3nOpcnTCns0ENVyzL2tN2bYk-k", v: "weekly"});
+
+      // Attach the openMap function to the button click event
+      document.getElementById("openMapButton").addEventListener("click", openMap);
+	
+</script>
+
+
+
+
+</body>
+
+</html>

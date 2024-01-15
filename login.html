@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="login.css">
+    <script src="login.js">
+         function redirectToHome() {
+        // Redirect to the home.html page
+        console.log('clicked');
+        window.location.href = 'home.html';
+    }
+	</script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Galada">
+    <script src="https://kit.fontawesome.com/b5389d2cc8.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+ <div class="head">
+	 <!--<h2 class="JT" onclick="redirectToNewPage()">JoesTable!</h2>-->
+        
+        <a href="home.html"><h2 class="JT" onclick="redirectToHome()">JoesTable!</h2></a>
+    </div>
+    
+
+
+    <section class="header">
+        <nav> 
+        <div class="nav-links">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="login.html">Sign up</a></li>
+            </ul>
+        </div>
+        </nav>
+    </section>
+
+
+
+    <div class="page">
+        <div class="form">
+
+            <div class="login">
+                <h2>Login</h2>
+                <form id="login-form" method="post">
+                    <label for="username">Username:</label>
+                    <br>
+                    <input required class="wide-input" type="text" id="login-username" name="username" required>
+                    <br><br>
+                    <label for="password">Password:</label>
+                    <br>
+                    <input required class="wide-input" type="password" id="login-password" name="password" required>
+                    <br><br>
+                    <!--<input class="red-btn" type="submit" value="Sign In">-->
+                    <button class="red-btn" type="submit">Sign In <i class="fas fa-sign-in-alt"></i></button>
+                </form>
+            </div>
+    
+        <div class="signup">
+            <h2>Sign Up</h2>
+         <form method="post">
+            <label for="email">Email:</label>
+            <br>
+            <input required class="wide-input"  type="email" id="email" name="email" required><br><br>
+    
+            <label for="username">Username:</label>
+            <br>
+            <input required class="wide-input" type="text" id="username" name="username" required><br><br>
+    
+            <label for="password">Password:</label>
+            <br>
+            <input required class="wide-input" type="password" id="password" name="password" required><br><br>
+    
+            <label for="confirm_password">Confirm Password:</label>
+            <br>
+            <input required class="wide-input" type="password" id="confirm_password" name="confirm_password" required><br><br>
+    
+            <input type="checkbox" id="accept_terms" name="accept_terms" required>
+            <label for="accept_terms">I accept the Terms and Conditions</label><br><br>    
+            <!--<input type="submit" class="red-btn" value="Create Account">-->
+             <button class="red-btn" type="submit"><i class="fa-solid fa-user-plus" style="color: #ffffff;"></i> Create Account</button>
+        </form>
+        </div>
+        </div>
+    </div>
+    
+    
+    
+
+
+   
+    
+</body>
+</html>
